@@ -24,10 +24,10 @@ from api.home.home_view import home_view
 
 urlpatterns = [
     #path('admin/', admin.site.urls),
-    path('login/', login_view, name = "login"),
-    path('logout/', logout_view, name = "logout"),
-    path('register/', register_view, name = "register"),
-    path('forgot/', forgot_view, name = "forgot"),
-    path('home/', home_view, name = "home"),
-    path('', home_view, name = "home"),
+    path('login/', login_view, name = 'login'),
+    path('logout/', logout_view, name = 'logout'),
+    path('register/', register_view, name = 'register'),
+    path('forgot/', forgot_view, name = 'forgot'),
+    path('home/', home_view, name = 'home'),
+    path('', home_view, name = 'home'),
 ]

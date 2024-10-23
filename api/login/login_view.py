@@ -3,16 +3,15 @@ from django.contrib.auth import authenticate, login,logout
 from django.contrib import messages
 from django.contrib.auth.models import User
 from django.contrib.auth.hashers import make_password
+
 # Create your views here.
 def login_view(request):
-    template_name= "auth-login.html"
+    template_name = "login.html"
     
-    if not request.user.is_active:
-        messages.error(request, 'User is not active')
         # Validación para usuarios ya autenticados
-        if request.user.is_authenticated:
+    if request.user.is_authenticated and request.user.is_active:
             return redirect('home')
-    
+        
     if request.method == 'POST':
         username = request.POST['username']
         password = request.POST['password']
@@ -21,12 +20,11 @@ def login_view(request):
             login(request, user)
             return redirect('home')
         else:
-            messages.error(request, 'Invalid login Credentials')
+            messages.error(request, 'Invalid login Credentials or User is not active')
     return render (request,template_name)
-
-# View for register
+    
 def register_view(request):
-    template_name= "auth-register.html"
+    template_name = "register.html"
     
     if request.method == 'POST':
         username = request.POST['username']
@@ -35,15 +33,15 @@ def register_view(request):
         confirm_password = request.POST['confirm_password']
         
         if password != confirm_password:
-            messages.error(request, "Las contraseñas no coinciden.")
+            messages.error(request, "The passwords do not match.")
             return render(request, template_name)
 
         if User.objects.filter(username=username).exists():
-            messages.error(request, "El nombre de usuario ya está en uso.")
+            messages.error(request, "The username is already in use.")
             return render(request, template_name)
         
         if User.objects.filter(email=email).exists():
-            messages.error(request, "El correo electrónico ya está en uso.")
+            messages.error(request, "The email is already in use")
             return render(request, template_name)
 
         user = User(
@@ -53,13 +51,12 @@ def register_view(request):
             is_active = 0
             )
         user.save()
-        messages.success(request, "Cuenta creada exitosamente")
+        messages.success(request, "Account successfully created.")
     return render (request,template_name)
 
-# View for forget
 def forgot_view(request):
-    template_name= "auth-forgot-password.html"
-    return render (request,template_name)
+    template_name = "forgot.html"
+    return render(request,template_name)
 
 #View for logout
 def logout_view(request):
