@@ -10017,3 +10017,53 @@ textarea.form-control {
       max-width: 1rem;   /* Tamaño máximo de las imágenes */
       height: auto;      /* Ajusta la altura automáticamente */
     }
+
+.bg1{
+  background-image: url('');
+}
+
+.bg1{
+  background-image: url('../images/bg_1.jpg');
+}
+.bg2{
+  background-image: url('../images/bg_2.jpg');
+}
+
+.bg3{
+  background-image: url('../images/bg_3.jpg');
+}
+
+.aboutimg{
+  background-image: url('../images/about.jpg');
+}
+
+.category0{
+  background-image: url('../images/category.jpg');
+}
+
+.category1{
+  background-image: url('../images/category-1.jpg');
+}
+.category2{
+  background-image: url('../images/category-2.jpg');
+}
+.category3{
+  background-image: url('../images/category-3.jpg');
+}
+.category4{
+  background-image: url('../images/category-4.jpg');
+}
+
+.person1{
+  background-image: url('../images/person_1.jpg');
+}
+
+.person2{
+  background-image: url('../images/person_2.jpg');
+}
+.person3{
+  background-image: url('../images/person_3.jpg');
+}
+.person4{
+  background-image: url('../images/person_4.jpg');
+}
