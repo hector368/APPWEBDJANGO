@@ -10067,3 +10067,10 @@ textarea.form-control {
 .person4{
   background-image: url('../images/person_4.jpg');
 }
+
+/* Clase de borde redondeado suave */
+.rounded-card {
+  border-radius: 12px; /* Ajuste típico para un borde redondeado suave */
+  overflow: hidden; /* Asegura que los elementos dentro no se salgan de los bordes */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Añade una sombra suave */
+}
